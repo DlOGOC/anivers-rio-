@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melhor Pai do Mundo</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#bfe8ff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+}
+
+/* Borda */
+.borda{
+    position:fixed;
+    inset:10px;
+    border:12px solid #2c7ecf;
+    border-radius:20px;
+    pointer-events:none;
+}
+
+.gravata{
+    position:fixed;
+    top:-50px;
+    font-size:30px;
+    animation:cair linear infinite;
+    z-index:1;
+}
+
+@keyframes cair{
+    0%{
+        top:-50px;
+    }
+    100%{
+        top:110vh;
+    }
+}
+
+/* Botão */
+.botao{
+    background:#5daeff;
+    color:white;
+    border:none;
+    padding:20px 40px;
+    font-size:1.5rem;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.botao:hover{
+    background:#3f97f5;
+    transform:scale(1.05);
+}
+
+/* Janela */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+}
+
+.caixa{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    max-width:500px;
+    width:90%;
+    text-align:center;
+}
+
+.caixa h2{
+    color:#2c7ecf;
+    margin-bottom:15px;
+}
+
+.fechar{
+    margin-top:20px;
+    background:#5daeff;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="borda"></div>
+
+<button class="botao" onclick="abrirJanela()">
+    Sou o Melhor Pai do Mundo
+</button>
+
+<div class="modal" id="modal">
+    <div class="caixa">
+        <h2>💙 02/11 💙</h2>
+        <p>
+            Feliz aniversário pai, você é o homem que mais admiro no mundo todo, você é incrível, só tem que se cuidar um pouco mais, mas é o melhor pai que eu poderia ter. 
+
+<br>
+
+Você é o meu exemplo, eu te amo de mais, obrigado por ser o nosso pai <3
+        </p>
+
+        <button class="fechar" onclick="fecharJanela()">
+            Fechar
+        </button>
+    </div>
+</div>
+
+<script>
+// Criar gravatas caindo
+for(let i=0;i<25;i++){
+    let gravata = document.createElement("div");
+    gravata.classList.add("gravata");
+    gravata.innerHTML = "👔";
+
+    gravata.style.left = Math.random()*100 + "vw";
+    gravata.style.animationDuration = (5 + Math.random()*8) + "s";
+    gravata.style.animationDelay = Math.random()*5 + "s";
+
+    document.body.appendChild(gravata);
+}
+
+function abrirJanela(){
+    document.getElementById("modal").style.display="flex";
+}
+
+function fecharJanela(){
+    document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
